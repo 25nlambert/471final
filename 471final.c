@@ -98,11 +98,7 @@ int main()
     gpio_pull_up(I2C_SCL);
     // For more examples of I2C use see https://github.com/raspberrypi/pico-examples/tree/master/i2c
 
-    printf("System Clock Frequency is %d Hz\n", clock_get_hz(clk_sys));
-    printf("USB Clock Frequency is %d Hz\n", clock_get_hz(clk_usb));
-    // For more examples of clocks use see https://github.com/raspberrypi/pico-examples/tree/master/clocks
-
-    float x_acceleration, y_acceleration, z_acceleration;
+    float x_axis_acceleration, y_axis_acceleration, z_axis_acceleration;
 
     LIS3DH_Init();
 
@@ -111,11 +107,11 @@ int main()
     while (true) {
         printf("Hello, world!\n");
         sleep_ms(1000);
-        LIS3DH_Get_Reading(LIS3DH_X_AXIS_L, LIS3DH_X_AXIS_H, &x_acceleration);
-        printf("%.3f\n", x_acceleration);
-        LIS3DH_Get_Reading(LIS3DH_Y_AXIS_L, LIS3DH_Y_AXIS_H, &y_acceleration);
-        printf("%.3f\n", y_acceleration);
-        LIS3DH_Get_Reading(LIS3DH_Z_AXIS_L, LIS3DH_Z_AXIS_H, &z_acceleration);
-        printf("%.3f\n", z_acceleration);
+        LIS3DH_Get_Reading(LIS3DH_X_AXIS_L, LIS3DH_X_AXIS_H, &x_axis_acceleration);
+        printf("%.3f\n", x_axis_acceleration);
+        LIS3DH_Get_Reading(LIS3DH_Y_AXIS_L, LIS3DH_Y_AXIS_H, &y_axis_acceleration);
+        printf("%.3f\n", y_axis_acceleration);
+        LIS3DH_Get_Reading(LIS3DH_Z_AXIS_L, LIS3DH_Z_AXIS_H, &z_axis_acceleration);
+        printf("%.3f\n", z_axis_acceleration);
     }
 }
